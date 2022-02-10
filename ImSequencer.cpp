@@ -267,10 +267,6 @@ namespace ImSequencer
                     bool overDel = SequencerAddDelButton(draw_list, ImVec2(contentMin.x + legendWidth - ItemHeight + 2 - 10, tpos.y + 2), false);
                     if (overDel && io.MouseReleased[0])
                         delEntry = i;
-
-                    bool overDup = SequencerAddDelButton(draw_list, ImVec2(contentMin.x + legendWidth - ItemHeight - ItemHeight + 2 - 10, tpos.y + 2), true);
-                    if (overDup && io.MouseReleased[0])
-                        dupEntry = i;
                 }
                 customHeight += sequence->GetCustomHeight(i);
             }
