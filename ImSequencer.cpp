@@ -51,8 +51,8 @@ namespace ImSequencer
 
         bool popupOpened = false;
         int sequenceCount = sequence->GetItemCount();
-        if (!sequenceCount)
-            return false;
+        /*if (!sequenceCount)
+            return false;*/
         ImGui::BeginGroup();
         
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -143,7 +143,8 @@ namespace ImSequencer
             ImGui::PushStyleColor(ImGuiCol_FrameBg, 0);
             ImGui::BeginChildFrame(889, childFrameSize);
             sequence->focused = ImGui::IsWindowFocused();
-            ImGui::InvisibleButton("contentBar", ImVec2(canvas_size.x, float(controlHeight)));
+            if(controlHeight)
+               ImGui::InvisibleButton("contentBar", ImVec2(canvas_size.x, float(controlHeight)));
             const ImVec2 contentMin = ImGui::GetItemRectMin();
             const ImVec2 contentMax = ImGui::GetItemRectMax();
             const ImRect contentRect(contentMin, contentMax);
